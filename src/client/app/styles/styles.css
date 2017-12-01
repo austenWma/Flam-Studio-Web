@@ -1,0 +1,319 @@
+/* Landing Page */
+
+.landingWelcomeContainer {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    border-style: solid;
+    border-color: blue;
+    /* background-image: url('http://www.eshermedia.com/wp-content/uploads/2015/07/contact-us-background-1920-2.jpg');
+    background-repeat: no-repeat;
+    background-size: contain; */
+}
+
+
+
+
+
+
+
+
+
+
+.landingTabContentContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    border-style: solid;
+    border-color: red;
+}
+.landingTabContentContainer1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    border-style: solid;
+    border-color: red;
+}
+.landingTabContentContainer2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    border-style: solid;
+    border-color: red;
+}
+.landingTabContentContainer3 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    border-style: solid;
+    border-color: red;
+}
+.landingTabContentContainer4 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    border-style: solid;
+    border-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+.landingWelcomeTabBarContainer {
+    height: 13%;
+    width: 99.9%;
+    border-style: solid;
+    border-color: green;
+    display: flex;
+    align-items: center; 
+    vertical-align: middle;
+}
+.landingWelcomeTitleLogo {
+    width: 10vw;
+    height: 10vw;
+    margin-left: 15%;
+    margin-top: 30%;
+    display: inline-block;
+    border-style: solid;
+    border-color: grey;
+}
+.landingWelcomeTabsContainer {
+    display: flex;
+    align-items: center; 
+    margin: 0 auto;
+    width: 60%;
+    justify-content: center;
+}
+.landingWelcomeTab {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    font-size: 150%;
+    margin-left: 10%;
+}
+.landingWelcomeMenuButton {
+    margin-left: 91%;
+    position: fixed;
+    z-index: 10;
+}
+
+.landingWelcomeContentContainer {
+    height: 87%;
+}
+.landingWelcomeContentPictureContainer1 {
+    height: 40%;
+    width: 99.9%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-style: solid;
+    border-color: yellow;
+}
+.landingWelcomeContentPictureContainer2 {
+    height: 15%;
+    width: 99.9%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-style: solid;
+    border-color: yellow;
+}
+.landingWelcomeContentPictureContainer3 {
+    height: 15%;
+    width: 99.9%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-style: solid;
+    border-color: yellow;
+}
+.landingWelcomeContentPictureContainer4 {
+    height: 30%;
+    width: 99.9%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-style: solid;
+    border-color: orange;
+}
+.landingWelcomeContentCaption1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 400%;
+}
+.landingWelcomeContentCaption2 {
+    width: 50%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 200%;
+}
+.landingWelcomeContentPictureBottom {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.landingMenuBar {
+    margin-left: 80%;
+    height: 100%;
+    width: 20%;
+    z-index: 5;
+    position: fixed;
+    border-style: solid;
+    border-color: black;
+}
+.landingMenuBarContainer {
+
+}
+.landingMenuBarPlaceholder {
+    border-style: solid;
+    border-color: orange;
+    width: 100%;
+    height: 15%;
+}
+.landingMenuBarTabs {
+    border-style: solid;
+    border-color: orange;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 150%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.c-hamburger {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 96px;
+    height: 96px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.c-hamburger:focus {
+    outline: none;
+}
+.c-hamburger span {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 18px;
+    right: 18px;
+    height: 8px;
+    background: Black;
+}
+  
+.c-hamburger span::before,
+.c-hamburger span::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: black;
+    content: "";
+}
+
+.c-hamburger span::before {
+    top: -20px;
+}
+
+.c-hamburger span::after {
+    bottom: -20px;
+}
+.c-hamburger--htx {
+    background-color: white;
+}
+  
+.c-hamburger--htx span {
+    transition: background 0s 0.3s;
+}
+  
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+  
+.c-hamburger--htx span::before {
+    transition-property: top, transform;
+}
+  
+.c-hamburger--htx span::after {
+    transition-property: bottom, transform;
+}
+  
+  /* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+    background-color: white;
+}
+
+.c-hamburger--htx.is-active span {
+    background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+    transition-delay: 0s, 0.3s;
+}
