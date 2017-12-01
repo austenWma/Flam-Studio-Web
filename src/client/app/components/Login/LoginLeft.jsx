@@ -4,7 +4,7 @@ import {Redirect, Link} from 'react-router-dom'
 
 import $ from 'jquery'
 
-class LandingPage extends Component {
+class LoginLeft extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -13,11 +13,11 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <div>
-        HELLO
+      <div className="loginLeftContainer">
+        LEFT
       </div>
     )
   }
 }
 
-export default LandingPage;
+export default LoginLeft;

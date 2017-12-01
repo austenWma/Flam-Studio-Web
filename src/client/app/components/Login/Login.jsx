@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
+import LoginLeft from './LoginLeft.jsx'
+import LoginRight from './LoginRight.jsx'
+
 import $ from 'jquery'
 
 class LandingPage extends Component {
@@ -13,8 +16,9 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <div>
-        HELLO
+      <div className="loginContainer">
+        <LoginLeft />
+        <LoginRight />
       </div>
     )
   }
