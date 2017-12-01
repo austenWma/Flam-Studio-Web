@@ -49,9 +49,6 @@ class LandingPage extends Component {
         <div className="landingTabContentContainer2">
           How it Works
         </div>
-        <div className="landingTabContentContainer3">
-          Products
-        </div>
         <div className="landingTabContentContainer4">
           Contact
         </div>
