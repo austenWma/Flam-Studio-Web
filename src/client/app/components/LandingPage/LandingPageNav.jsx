@@ -22,6 +22,7 @@ class LandingPageNav extends Component {
 		};
 		this.handleMenuChange = this.handleMenuChange.bind(this)
 		this.signOut = this.signOut.bind(this)
+		this.goToStudioHome = this.goToStudioHome.bind(this)
 	}
 	
 	handleMenuChange(event, index, value) {
@@ -32,6 +33,10 @@ class LandingPageNav extends Component {
 		firebase.auth().signOut().then(() => {
       this.props.landingPageProps.history.push('/')
     })
+	}
+
+	goToStudioHome() {
+		this.props.landingPageProps.history.push('/LandingPage')
 	}
 
   render() {
@@ -67,7 +72,7 @@ class LandingPageNav extends Component {
 						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
 							<MenuItem value={1} primaryText="austen@austen.com"/>
 							<Divider />
-							<MenuItem value={2} primaryText="Your Studio"/>
+							<MenuItem value={2} primaryText="Your Studio" onClick={this.goToStudioHome}/>
 							<Divider />
 							<MenuItem value={3} primaryText="Flam Blog"/>
 							<Divider />

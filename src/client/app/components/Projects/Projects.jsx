@@ -10,13 +10,13 @@ class Projects extends Component {
     super(props)
     this.state = {
 		};
-  }
+	}
 
   render() {
     return (
       <div className="projectsContainer">
         <ProjectsNav />
-				<ProjectsList /> 
+				<ProjectsList historyProps={this.props.historyProps}/> 
       </div>
     )
   }

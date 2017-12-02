@@ -8,23 +8,24 @@ import { firebaseRef } from '../../Firebase/firebase.js'
 import * as firebase from 'firebase'
 const db = firebase.database()
 
-class Projects extends Component {
+class ProjectsList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-			projectsArr: []
+			projectsArr: [],
 		};
 	}
 	
 	componentDidMount() {
 		db.ref(`users/${sessionStorage.getItem('access_token')}/projectIDs`).on('value', (data) => {
 			let newProjectsArr = []
+			let newProjectsIDsArr = []
 			for (var key in data.val()) {
-				newProjectsArr.push(data.val()[key])
+				newProjectsArr.push([data.val()[key], '0.' + key])
 			}
 
 			this.setState({
-				projectsArr: newProjectsArr
+				projectsArr: newProjectsArr,
 			})
 		})
 	}
@@ -33,11 +34,11 @@ class Projects extends Component {
     return (
       <div className="projectsListContainer">
         {this.state.projectsArr.map(project =>
-					<ProjectsListItem projectName={project}/> 
+					<ProjectsListItem projectInfo={project} projectsListProps={this.props.historyProps}/> 
 				)}
       </div>
     )
   }
 }
 
-export default Projects;
+export default ProjectsList;

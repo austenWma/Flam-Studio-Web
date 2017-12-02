@@ -16,7 +16,7 @@ class LandingPage extends Component {
     return (
       <div className="landingPageContainer">
         <LandingPageNav landingPageProps={this.props}/> 
-        <Projects /> 
+        <Projects historyProps={this.props}/> 
       </div>
     )
   }
