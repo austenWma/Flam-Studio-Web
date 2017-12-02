@@ -1,3 +1,5 @@
+/* Login and Signup  */
+
 .loginContainer {
     display: flex;  
 }
@@ -18,7 +20,7 @@
 .loginActionContainer {
     border-style: solid;
     border-width: 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 40%;
     width: 60%;
     min-width: 150px;
@@ -40,3 +42,63 @@
 .loginSignupContainer {
     margin-top: 10%;
 }
+
+
+.signUpActionContainer {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 70%;
+    width: 60%;
+    min-width: 150px;
+    min-height: 300px;
+    margin-top: 20%;
+}
+.signUpInputFields {
+    text-align: center;
+}
+.signUpButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+}
+
+
+/* Landing Page */
+
+.landingPageContainer {
+    height: 100%;
+}
+.landingPageNavContainer {
+    height: 65px;
+    width: 100%;
+    border-bottom: solid;
+}
+.landingNavLogo {
+    height: 100%;
+    width: 65px;
+    margin-left: 5px;
+    display: inline-block;
+}
+.landingPageNavSettingsContainer {
+    display: inline-block;
+    float: right;
+    margin-right: 25px;
+}
+.landingPageNavAccountContainer {
+    height: 100%;
+    width: 350px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    float: right;
+}
+.landingPageNavAvatarContainer {
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+

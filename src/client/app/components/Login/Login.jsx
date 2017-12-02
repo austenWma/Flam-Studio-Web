@@ -5,9 +5,7 @@ import {Redirect, Link} from 'react-router-dom'
 import LoginLeft from './LoginLeft.jsx'
 import LoginRight from './LoginRight.jsx'
 
-import $ from 'jquery'
-
-class LandingPage extends Component {
+class Login extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -18,10 +16,10 @@ class LandingPage extends Component {
     return (
       <div className="loginContainer">
         <LoginLeft />
-        <LoginRight />
+        <LoginRight loginProps={this.props}/>
       </div>
     )
   }
 }
 
-export default LandingPage;
+export default Login;

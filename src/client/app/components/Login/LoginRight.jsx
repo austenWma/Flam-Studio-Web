@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
+import SignUp from './SignUp.jsx'
+
 import $ from 'jquery'
 
 import TextField from 'material-ui/TextField';
@@ -19,19 +21,21 @@ class LoginRight extends Component {
     this.state = {
 			email: '',
 			password: '',
+			signUpToggle: false
 		};
 		this.handleEmailChange = this.handleEmailChange.bind(this)
 		this.handlePasswordChange = this.handlePasswordChange.bind(this)
 		this.login = this.login.bind(this)
+		this.toggleSignup = this.toggleSignup.bind(this)
 	}
 
 	login() {
     firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
     .then(data => {
-        if (data) {
-            localStorage.setItem('access_token', data.uid.slice(0,10))
-            alert('SIGNED IN!')
-        }
+			if (data) {
+				sessionStorage.setItem('access_token', data.uid.substring(0, 10))
+				this.props.loginProps.history.push('/LandingPage')
+			}
     })
     .catch((err) => {
         console.log(err);
@@ -50,39 +54,53 @@ class LoginRight extends Component {
 		})
 	}
 
+	toggleSignup() {
+		this.setState({
+			signUpToggle: !this.state.signUpToggle
+		})
+	}
+
   render() {
-    return (
-      <div className="loginRightContainer">
-        <div className="loginActionContainer">
-				<MuiThemeProvider>
-					<div className="loginInputFields">
-							<TextField
-								hintText="Email"
-								style={{width: '55%', marginTop: '10%'}}
-								onChange={this.handleEmailChange}
-							/>
-							<br />
-							<br />
-							<TextField
-								hintText="Password"
-								style={{width: '55%'}}
-								type="password"
-								onChange={this.handlePasswordChange}
-							/>
-							<div className="loginButtonContainer">
-								<div className="loginButton">
-									<RaisedButton label="Log In" fullWidth={true} onClick={this.login}/>
+		if (!this.state.signUpToggle) {
+			return (
+				<div className="loginRightContainer">
+					<div className="loginActionContainer">
+					<MuiThemeProvider>
+						<div className="loginInputFields">
+								<TextField
+									hintText="Email"
+									style={{width: '55%', marginTop: '10%'}}
+									onChange={this.handleEmailChange}
+								/>
+								<br />
+								<br />
+								<TextField
+									hintText="Password"
+									style={{width: '55%'}}
+									type="password"
+									onChange={this.handlePasswordChange}
+								/>
+								<div className="loginButtonContainer">
+									<div className="loginButton">
+										<RaisedButton label="Log In" fullWidth={true} onClick={this.login}/>
+									</div>
 								</div>
-							</div>
-							<div className="loginSignupContainer">
-								<div>Don't have an account with us?</div>
-								<a>Sign Up</a>
-							</div>
+								<div className="loginSignupContainer">
+									<div>Don't have an account with us?</div>
+									<div onClick={this.toggleSignup}>Sign Up</div>
+								</div>
+						</div>
+					</MuiThemeProvider>
 					</div>
-				</MuiThemeProvider>
 				</div>
-      </div>
-    )
+			)
+		}	else {
+			return (
+				<div className="loginRightContainer">
+					<SignUp toggleSignup={this.toggleSignup}/> 
+				</div>
+			)
+		}
   }
 }
 

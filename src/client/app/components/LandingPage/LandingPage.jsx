@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
+import LandingPageNav from './LandingPageNav.jsx'
+
 import $ from 'jquery'
 
 class LandingPage extends Component {
@@ -13,8 +15,8 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <div>
-        HELLO
+      <div className="landingPageContainer">
+        <LandingPageNav /> 
       </div>
     )
   }
