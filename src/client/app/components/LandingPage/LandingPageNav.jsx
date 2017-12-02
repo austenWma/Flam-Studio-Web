@@ -36,7 +36,7 @@ class LandingPageNav extends Component {
 					<MuiThemeProvider>
 					<IconMenu
 						iconButtonElement={<IconButton 
-							iconStyle={{width: 37, height: 37}}
+							iconStyle={{width: 30, height: 30, marginTop: 5}}
 						>
 							<MoreVertIcon />
 						</IconButton>}
@@ -66,7 +66,7 @@ class LandingPageNav extends Component {
 					<div className="landingPageNavAvatarContainer"></div>
 					<div className="landingPageNavAcountDropdown">
 						<MuiThemeProvider>
-						<DropDownMenu value={this.state.value} onChange={this.handleMenuChange}>
+						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
 							<MenuItem value={1} primaryText="austen@austen.com" />
 							<Divider />
 							<MenuItem value={2} primaryText="Your Projects" />
