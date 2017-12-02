@@ -16,7 +16,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className="landingPageContainer">
-        <LandingPageNav /> 
+        <LandingPageNav landingPageProps={this.props}/> 
       </div>
     )
   }

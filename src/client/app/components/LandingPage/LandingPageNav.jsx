@@ -13,6 +13,9 @@ import Divider from 'material-ui/Divider';
 import Download from 'material-ui/svg-icons/file/file-download';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
+import { firebaseRef } from '../../Firebase/firebase.js'
+import * as firebase from 'firebase'
+
 class LandingPageNav extends Component {
   constructor (props) {
     super(props)
@@ -20,10 +23,17 @@ class LandingPageNav extends Component {
 			value: 1,
 		};
 		this.handleMenuChange = this.handleMenuChange.bind(this)
+		this.signOut = this.signOut.bind(this)
 	}
 	
 	handleMenuChange(event, index, value) {
 		this.setState({value})
+	}
+
+	signOut() {
+		firebase.auth().signOut().then(() => {
+      this.props.landingPageProps.history.push('/')
+    })
 	}
 
   render() {
@@ -35,7 +45,7 @@ class LandingPageNav extends Component {
 				<div className='landingPageNavSettingsContainer'>
 					<MuiThemeProvider>
 					<IconMenu
-						iconButtonElement={<IconButton 
+							iconButtonElement={<IconButton 
 							iconStyle={{width: 30, height: 30, marginTop: 5}}
 						>
 							<MoreVertIcon />
@@ -43,22 +53,12 @@ class LandingPageNav extends Component {
 						anchorOrigin={{horizontal: 'left', vertical: 'top'}}
 						targetOrigin={{horizontal: 'left', vertical: 'top'}}
 					>
-						<MenuItem
-							primaryText="Your Profile"
-						/>
-						<MenuItem
-							primaryText="Account Settings"
-						/>
+						<MenuItem primaryText="Your Profile"/>
+						<MenuItem primaryText="Account Settings"/>
 						<Divider />
-						<MenuItem 
-							primaryText="Download" 
-							leftIcon={<Download />} 
-						/>
+						<MenuItem primaryText="Download" leftIcon={<Download />}/>
 						<Divider />
-						<MenuItem 
-							primaryText="Sign Out" 
-						/>
-				
+						<MenuItem primaryText="Sign Out" onClick={this.signOut}/>
 					</IconMenu>
 					</MuiThemeProvider>
 				</div>
@@ -67,13 +67,13 @@ class LandingPageNav extends Component {
 					<div className="landingPageNavAcountDropdown">
 						<MuiThemeProvider>
 						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
-							<MenuItem value={1} primaryText="austen@austen.com" />
+							<MenuItem value={1} primaryText="austen@austen.com"/>
 							<Divider />
-							<MenuItem value={2} primaryText="Your Projects" />
+							<MenuItem value={2} primaryText="Your Projects"/>
 							<Divider />
-							<MenuItem value={3} primaryText="Flam Blog" />
+							<MenuItem value={3} primaryText="Flam Blog"/>
 							<Divider />
-							<MenuItem value={4} primaryText="Invitations" />
+							<MenuItem value={4} primaryText="Invitations"/>
 						</DropDownMenu>
 						</MuiThemeProvider>
 					</div>
