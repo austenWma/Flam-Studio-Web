@@ -4,8 +4,6 @@ import {Redirect, Link} from 'react-router-dom'
 
 import SignUp from './SignUp.jsx'
 
-import $ from 'jquery'
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';

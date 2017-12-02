@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
-import $ from 'jquery'
-
 import IconMenu from 'material-ui/IconMenu';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem'
@@ -69,7 +67,7 @@ class LandingPageNav extends Component {
 						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
 							<MenuItem value={1} primaryText="austen@austen.com"/>
 							<Divider />
-							<MenuItem value={2} primaryText="Your Projects"/>
+							<MenuItem value={2} primaryText="Your Studio"/>
 							<Divider />
 							<MenuItem value={3} primaryText="Flam Blog"/>
 							<Divider />

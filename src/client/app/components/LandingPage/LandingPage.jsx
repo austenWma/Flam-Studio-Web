@@ -3,8 +3,7 @@ import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
 import LandingPageNav from './LandingPageNav.jsx'
-
-import $ from 'jquery'
+import Projects from '../Projects/Projects.jsx'
 
 class LandingPage extends Component {
   constructor (props) {
@@ -17,6 +16,7 @@ class LandingPage extends Component {
     return (
       <div className="landingPageContainer">
         <LandingPageNav landingPageProps={this.props}/> 
+        <Projects /> 
       </div>
     )
   }
