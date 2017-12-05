@@ -32,6 +32,7 @@ class LoginRight extends Component {
     .then(data => {
 			if (data) {
 				sessionStorage.setItem('access_token', data.uid.substring(0, 10))
+				sessionStorage.setItem('user_email', data.email)
 				this.props.loginProps.history.push('/LandingPage')
 			}
     })

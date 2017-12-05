@@ -27,7 +27,7 @@ class CommitsListItem extends Component {
     return (
       <div>
 				<div>{this.state.commitMessage}</div>
-				<a href={this.state.commitDownload}>Download</a>
+				<a href={this.state.commitDownload}>Open in Logic</a>
 	    </div>
     )
   }

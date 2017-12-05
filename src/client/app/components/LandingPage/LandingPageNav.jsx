@@ -70,7 +70,7 @@ class LandingPageNav extends Component {
 					<div className="landingPageNavAcountDropdown">
 						<MuiThemeProvider>
 						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
-							<MenuItem value={1} primaryText="austen@austen.com"/>
+							<MenuItem value={1} primaryText={sessionStorage.getItem('user_email')}/>
 							<Divider />
 							<MenuItem value={2} primaryText="Your Studio" onClick={this.goToStudioHome}/>
 							<Divider />
