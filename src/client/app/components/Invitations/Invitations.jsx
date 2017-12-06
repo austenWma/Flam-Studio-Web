@@ -3,6 +3,7 @@ import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
 import LandingPageNav from '../LandingPage/LandingPageNav.jsx'
+import InvitationsList from './InvitationsList.jsx'
 
 class Invitations extends Component {
   constructor (props) {
@@ -13,9 +14,12 @@ class Invitations extends Component {
 
   render() {
     return (
-      <div className="landingPageContainer">
+      <div className="invitationsContainer">
         <LandingPageNav landingPageProps={this.props}/> 
-        Invitations
+        <div className="invitationsNavTitleContainer">
+            Invitations
+        </div>
+        <InvitationsList /> 
       </div>
     )
   }

@@ -6,12 +6,20 @@ class InvitationsListItem extends Component {
   constructor (props) {
     super(props)
     this.state = {
+			invitationDate: '',
+			invitationProjectName: '',
+			invitationID: ''
     };
-  }
+	}
+	
+	componentDidMount() {
+		console.log(this.props.invitationInfo)
+	}
 
   render() {
     return (
       <div className="invitationsListItemContainer">
+				{this.props.invitationInfo[1]}
       </div>
     )
   }
