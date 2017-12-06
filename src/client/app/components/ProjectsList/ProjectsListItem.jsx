@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
+import InviteModal from './InviteModal.jsx'
+
 import { firebaseRef } from '../../Firebase/firebase.js'
 import * as firebase from 'firebase'
 const db = firebase.database()
@@ -10,11 +12,13 @@ class ProjectsListItem extends Component {
   constructor (props) {
     super(props)
     this.state = {
-			value: this.props.defaultValue
+			showModal: false,
+			inviteEmail: ''
     };
     this.goToProjectSelected = this.goToProjectSelected.bind(this)
 		this.invite = this.invite.bind(this)
-		this.onPromptChange = this.onPromptChange.bind(this)
+		this.toggleModal = this.toggleModal.bind(this)
+		this.emailInviteSubmit = this.emailInviteSubmit.bind(this)
   }
 
   goToProjectSelected() {
@@ -24,6 +28,17 @@ class ProjectsListItem extends Component {
 
 	invite(context) {
 		console.log('Inviting collaborator')
+		this.toggleModal()
+	}
+
+	toggleModal() {
+		this.setState({
+			showModal: !this.state.showModal
+		})
+	}
+
+	emailInviteSubmit(email) {
+		console.log(email)
 	}
 
   render() {
@@ -32,7 +47,12 @@ class ProjectsListItem extends Component {
         <div className="projectsListItemContainer" onClick={this.goToProjectSelected}>
           {this.props.projectInfo[0]}
         </div>
-				<button onClick={() => { this.invite(this) }}>Invite Collaborator</button>
+				<button onClick={this.invite}>Invite Collaborator</button>
+				<InviteModal
+          toggleModal={this.toggleModal}
+          showModal={this.state.showModal}
+					emailInviteSubmit={this.emailInviteSubmit}
+        />
 			</div>
     )
   }
