@@ -39,6 +39,27 @@ class ProjectsListItem extends Component {
 
 	emailInviteSubmit(email) {
 		console.log(email)
+		let invitee = '';
+
+		db.ref(`users/`).once('value', (data) => {
+			let userObj = data.val();
+			for (var key in userObj) {
+				if (userObj[key].email === email) {
+					invitee = userObj[key]
+				}
+			}
+			
+			db.ref(`users/${invitee.uid}/invitationRequests`).once('value', (data) => {
+				let invitationCount = 0;
+				for (var key in data.val()) {
+					invitationCount++
+				}
+	
+				db.ref(`users/${invitee.uid}/invitationRequests`).update({
+					[invitationCount]: this.props.projectInfo[1] + ' | ' + Date()
+				})
+			})
+		})
 	}
 
   render() {
