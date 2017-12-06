@@ -6,6 +6,7 @@ import LandingPage from './LandingPage/LandingPage.jsx'
 import Login from './Login/Login.jsx'
 import ProjectsList from './ProjectsList/ProjectsList.jsx'
 import ProjectSelected from './ProjectSelected/ProjectSelected.jsx'
+import Invitations from './Invitations/Invitations.jsx'
 
 class App extends Component {
   constructor (props) {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/" component={Login}/>
             <Route exact path="/LandingPage" component={LandingPage}/>
             <Route exact path="/ProjectSelected" component={ProjectSelected}/>
+            <Route exact path="/Invitations" component={Invitations}/>
           </Switch>
         </HashRouter>
       </div>

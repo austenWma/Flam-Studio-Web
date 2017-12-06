@@ -23,6 +23,7 @@ class LandingPageNav extends Component {
 		this.handleMenuChange = this.handleMenuChange.bind(this)
 		this.signOut = this.signOut.bind(this)
 		this.goToStudioHome = this.goToStudioHome.bind(this)
+		this.goToInvitations = this.goToInvitations.bind(this)
 	}
 	
 	handleMenuChange(event, index, value) {
@@ -37,6 +38,10 @@ class LandingPageNav extends Component {
 
 	goToStudioHome() {
 		this.props.landingPageProps.history.push('/LandingPage')
+	}
+
+	goToInvitations() {
+		this.props.landingPageProps.history.push('/Invitations')
 	}
 
   render() {
@@ -76,7 +81,7 @@ class LandingPageNav extends Component {
 							<Divider />
 							<MenuItem value={3} primaryText="Flam Blog"/>
 							<Divider />
-							<MenuItem value={4} primaryText="Invitations"/>
+							<MenuItem value={4} primaryText="Invitations" onClick={this.goToInvitations}/>
 						</DropDownMenu>
 						</MuiThemeProvider>
 					</div>
