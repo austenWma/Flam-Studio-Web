@@ -10,8 +10,11 @@ class ProjectsListItem extends Component {
   constructor (props) {
     super(props)
     this.state = {
+			value: this.props.defaultValue
     };
     this.goToProjectSelected = this.goToProjectSelected.bind(this)
+		this.invite = this.invite.bind(this)
+		this.onPromptChange = this.onPromptChange.bind(this)
   }
 
   goToProjectSelected() {
@@ -19,11 +22,18 @@ class ProjectsListItem extends Component {
       this.props.projectsListProps.history.push('/ProjectSelected')
   }
 
+	invite(context) {
+		console.log('Inviting collaborator')
+	}
+
   render() {
     return (
-      <div className="projectsListItemContainer" onClick={this.goToProjectSelected}>
-        {this.props.projectInfo[0]}
-      </div>
+			<div>
+        <div className="projectsListItemContainer" onClick={this.goToProjectSelected}>
+          {this.props.projectInfo[0]}
+        </div>
+				<button onClick={() => { this.invite(this) }}>Invite Collaborator</button>
+			</div>
     )
   }
 }
