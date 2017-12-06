@@ -11,7 +11,7 @@ class InviteModal extends Component {
 			email: ''
 		};
 		this.handleEmailChange = this.handleEmailChange.bind(this)
-		this.submitEmail = this.submitEmail.bind(this)
+		this.submitEmailInvite = this.submitEmailInvite.bind(this)
 	}
 
 	handleEmailChange(e) {
@@ -20,8 +20,9 @@ class InviteModal extends Component {
 		})
 	}
 
-	submitEmail() {
+	submitEmailInvite() {
 		this.props.emailInviteSubmit(this.state.email)
+		this.props.toggleModal()
 	}
 
   render() {
@@ -37,7 +38,7 @@ class InviteModal extends Component {
 					<input type="text" onChange={this.handleEmailChange}/> 
 				</Modal.Body>
 				<Modal.Footer>
-					<Button bsStyle="info" onClick={this.submitEmail}>Invite</Button>
+					<Button bsStyle="info" onClick={this.submitEmailInvite}>Invite</Button>
 					<Button bsStyle="danger" onClick={this.props.toggleModal}>Close</Button>
 				</Modal.Footer>
 			</Modal>
