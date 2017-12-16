@@ -29,7 +29,7 @@ class ProjectSelected extends Component {
         <div className="projectSelectedTitle">
           {this.state.projectName}
         </div>
-        <CommitsList />
+        <CommitsList projectName={this.state.projectName}/>
 			</div>
     )
   }

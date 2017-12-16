@@ -20,8 +20,14 @@ class CommitsList extends Component {
 		let cutProjectID = sessionStorage.getItem('project_selected').split(',')[1].slice(2)
 
 		db.ref(`users/${sessionStorage.getItem('access_token')}/projectCommits/${cutProjectID}`).on('value', (data) => {
+			let commitsListArr = []
+
+			for (var key in data.val()) {
+				commitsListArr.push(data.val()[key] + ' | ' + key)
+			}
+
 			this.setState({
-				commitsListArr: data.val().slice(1)
+				commitsListArr: commitsListArr
 			})
 		})
   }
