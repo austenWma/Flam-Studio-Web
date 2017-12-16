@@ -9,6 +9,8 @@ class CommitsListItem extends Component {
 			commitMessage: '',
 			commitDownload: ''
 		};
+
+		this.commitDownload = this.commitDownload.bind(this)
 	}
 	
 	componentDidMount() {
@@ -22,12 +24,16 @@ class CommitsListItem extends Component {
 		})
 	}
 
+	commitDownload() {
+		console.log('COMMIT DOWNLOAD')
+	}
+
   render() {
 		console.log(this.state.commitDownload)
     return (
       <div>
 				<div>{this.state.commitMessage}</div>
-				<a href={this.state.commitDownload}>Open in Logic</a>
+				<a onClick={this.commitDownload}>Open in Logic</a>
 	    </div>
     )
   }
