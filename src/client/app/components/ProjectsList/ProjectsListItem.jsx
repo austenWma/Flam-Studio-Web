@@ -60,7 +60,7 @@ class ProjectsListItem extends Component {
 					}
 		
 					db.ref(`users/${invitee.uid}/invitationRequests`).update({
-						[invitationCount]: this.props.projectInfo[1] + ' | ' + this.props.projectInfo[0] + ' | ' + Date()
+						[invitationCount]: this.props.projectInfo[1] + ' | ' + this.props.projectInfo[0] + ' | ' + sessionStorage.getItem('access_token') + ' | ' + sessionStorage.getItem('user_email') + ' | ' + Date()
 					})
 				})
 			}

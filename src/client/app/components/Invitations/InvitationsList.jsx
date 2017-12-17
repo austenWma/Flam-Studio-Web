@@ -21,6 +21,7 @@ class InvitationsList extends Component {
 			let newInvitationsArr = []
 			for (var key in data.val()) {
 				let splitItems = data.val()[key].split(' | ')
+				splitItems.push(key)
 				newInvitationsArr.push(splitItems)
 			}
 
