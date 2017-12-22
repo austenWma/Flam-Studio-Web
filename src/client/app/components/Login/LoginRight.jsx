@@ -100,6 +100,9 @@ class LoginRight extends Component {
 		}	else {
 			return (
 				<div className="loginRightContainer">
+					<div className="loginNavContainer">
+						<LoginNav />
+					</div>
 					<SignUp toggleSignup={this.toggleSignup}/> 
 				</div>
 			)
