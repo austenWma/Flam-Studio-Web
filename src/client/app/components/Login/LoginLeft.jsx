@@ -11,9 +11,7 @@ class LoginLeft extends Component {
 
   render() {
     return (
-      <div className="loginLeftContainer">
-        LEFT
-      </div>
+      <div className="loginLeftContainer"></div>
     )
   }
 }

@@ -3,6 +3,7 @@ import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
 import SignUp from './SignUp.jsx'
+import LoginNav from './LoginNav.jsx'
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -63,6 +64,9 @@ class LoginRight extends Component {
 		if (!this.state.signUpToggle) {
 			return (
 				<div className="loginRightContainer">
+					<div className="loginNavContainer">
+						<LoginNav />
+					</div>
 					<div className="loginActionContainer">
 					<MuiThemeProvider>
 						<div className="loginInputFields">
