@@ -50,25 +50,22 @@ class LandingPageNav extends Component {
         <div className="landingNavLogo">
 					<img src={'http://i66.tinypic.com/2zgu68p.png'} style={{height: '100%', width: '100%', marginTop: '10%'}} />
         </div>
-				<div className='landingPageNavSettingsContainer'>
-					<MuiThemeProvider>
-					<IconMenu
-							iconButtonElement={<IconButton 
-							iconStyle={{width: 30, height: 30, marginTop: 5}}
+				<div className="landingPageNavSettingsContainer">
+						<MuiThemeProvider>
+						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange} iconButton={<IconButton 
+							iconStyle={{width: 30, height: 30, marginTop: -30, marginLeft: -25}}
 						>
 							<MoreVertIcon />
 						</IconButton>}
-						anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-						targetOrigin={{horizontal: 'left', vertical: 'top'}}
-					>
-						<MenuItem primaryText="Your Profile"/>
-						<MenuItem primaryText="Account Settings"/>
-						<Divider />
-						<MenuItem primaryText="Download" leftIcon={<Download />}/>
-						<Divider />
-						<MenuItem primaryText="Sign Out" onClick={this.signOut}/>
-					</IconMenu>
-					</MuiThemeProvider>
+						iconStyle={{}}>
+							<MenuItem primaryText="Your Profile"/>
+							<MenuItem primaryText="Account Settings"/>
+							<Divider />
+							<MenuItem primaryText="Download" leftIcon={<Download />}/>
+							<Divider />
+							<MenuItem primaryText="Sign Out" onClick={this.signOut}/>
+						</DropDownMenu>
+						</MuiThemeProvider>
 				</div>
 				<div className="landingPageNavAccountContainer">
 					<div className="landingPageNavAvatarContainer"></div>

@@ -82,9 +82,12 @@
     display: inline-block;
 }
 .landingPageNavSettingsContainer {
-    display: inline-block;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     float: right;
-    margin-right: 25px;
 }
 .landingPageNavAccountContainer {
     height: 100%;
