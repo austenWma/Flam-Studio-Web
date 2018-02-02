@@ -19,19 +19,21 @@ class CommitsListItem extends Component {
 	}
 	
 	componentDidMount() {
-		console.log('HERE', sessionStorage.getItem('project_selected'), this.props.projectInfo)
 
 		let projectCommitInfo = this.props.projectInfo.split(' | ')
+
+		console.log('PROJECT COMIT INFO', projectCommitInfo)
 
 		this.setState({
 			commitMessage: projectCommitInfo[1],
 			commitDownload: projectCommitInfo[0],
-			commitNumber: projectCommitInfo[2]
+			commitNumber: projectCommitInfo[4],
+			commitUser: projectCommitInfo[3]
 		})
 	}
 
 	commitDownload() {
-		console.log('COMMIT DOWNLOAD')
+		console.log('COMMIT DOWNLOAD', sessionStorage.getItem('project_selected').split(',')[0] + this.state.commitNumber)
 		// Send update to FB OpeningProject property containing the DLlink of the new project
 
 		db.ref(`users/${sessionStorage.getItem('access_token')}`).update({
@@ -43,7 +45,10 @@ class CommitsListItem extends Component {
 		console.log(this.state.commitDownload)
     return (
       <div>
-				<div>{this.state.commitMessage}</div>
+				<div className="commitInfo">
+					<div>{this.state.commitMessage}</div>
+					<div>{this.state.commitUser}</div>
+				</div>
 				<a onClick={this.commitDownload}>Open in Logic</a>
 	    </div>
     )

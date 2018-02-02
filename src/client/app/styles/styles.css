@@ -51,7 +51,7 @@
     border-bottom: solid;
     border-width: 1px;
     border-color: #C2C2C2;
-    box-shadow: 0 10px 20px -2px gray;
+    box-shadow: 0 1px 15px -2px gray;
 }
 .loginNavItemsContainer {
     display: flex;
