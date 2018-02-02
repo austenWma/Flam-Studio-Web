@@ -45,6 +45,47 @@ class InvitationsListItem extends Component {
 		})
 		.catch(err => console.log(err))
 
+		// Updating/Syncing collaboraters
+		// Grab a list of users associated with the project
+
+		db.ref(`users/${inviterID}/projectIDs/${projectID}`).once('value', (data) => {
+
+			let collaboratorsArr;
+
+			if (data.val().Collaborators.includes(' | ')) {
+				collaboratorsArr = data.val().Collaborators.split(' | ')
+			}	else {
+				collaboratorsArr = [data.val().Collaborators]
+			}
+			for (let i = 0; i < collaboratorsArr.length; i++) {
+				// Iterate through them and add the invitee's name to each of their projectIDs' 'Collaborators' property
+
+				db.ref(`users`).once('value', (userData) => {
+
+					for (var key in userData.val()) {
+						if (userData.val()[key].email === collaboratorsArr[i]) {
+
+							let updatedCollaborators = {
+								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('user_email')
+							}
+
+							db.ref(`users/${key}/projectIDs/${projectID}`).update(updatedCollaborators)
+						}	else if (userData.val()[key].email === sessionStorage.getItem('user_email')) {
+
+							let updatedCollaborators = {
+								Name: projectName,
+								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('user_email')
+							}
+
+							db.ref(`users/${key}/projectIDs/${projectID}`).update(updatedCollaborators)
+						}
+					}
+
+				})
+			}
+		})
+		.catch(err => console.log(err))
+
 	}
 
   render() {

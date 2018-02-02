@@ -21,7 +21,7 @@ class ProjectsList extends Component {
 			let newProjectsArr = []
 			let newProjectsIDsArr = []
 			for (var key in data.val()) {
-				newProjectsArr.push([data.val()[key], '0.' + key])
+				newProjectsArr.push([data.val()[key].Name, '0.' + key])
 			}
 
 			this.setState({
