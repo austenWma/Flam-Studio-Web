@@ -80,7 +80,6 @@ class InvitationsListItem extends Component {
 							db.ref(`users/${key}/projectIDs/${projectID}`).update(updatedCollaborators)
 						}
 					}
-
 				})
 			}
 		})
