@@ -7,6 +7,8 @@ import Login from './Login/Login.jsx'
 import ProjectsList from './ProjectsList/ProjectsList.jsx'
 import ProjectSelected from './ProjectSelected/ProjectSelected.jsx'
 import Invitations from './Invitations/Invitations.jsx'
+import YourProfile from './Settings/YourProfile/YourProfile.jsx'
+import AccountSettings from './Settings/AccountSettings/AccountSettings.jsx'
 
 class App extends Component {
   constructor (props) {
@@ -22,6 +24,8 @@ class App extends Component {
             <Route exact path="/LandingPage" component={LandingPage}/>
             <Route exact path="/ProjectSelected" component={ProjectSelected}/>
             <Route exact path="/Invitations" component={Invitations}/>
+            <Route exact path="/YourProfile" component={YourProfile}/>
+            <Route exact path="/AccountSettings" component={AccountSettings}/>
           </Switch>
         </HashRouter>
       </div>

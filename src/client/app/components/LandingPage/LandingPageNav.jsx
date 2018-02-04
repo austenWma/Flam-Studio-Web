@@ -24,6 +24,10 @@ class LandingPageNav extends Component {
 		this.signOut = this.signOut.bind(this)
 		this.goToStudioHome = this.goToStudioHome.bind(this)
 		this.goToInvitations = this.goToInvitations.bind(this)
+		this.goToFlamBlog = this.goToFlamBlog.bind(this)
+		this.goToYourProfile = this.goToYourProfile.bind(this)
+		this.goToAccountSettings = this.goToAccountSettings.bind(this)
+		this.goToDownload = this.goToDownload.bind(this)
 	}
 	
 	handleMenuChange(event, index, value) {
@@ -44,6 +48,23 @@ class LandingPageNav extends Component {
 		this.props.landingPageProps.history.push('/Invitations')
 	}
 
+	goToFlamBlog() {
+		window.location = 'https://www.flam-studio.com/community'
+	}
+
+	goToYourProfile() {
+		this.props.landingPageProps.history.push('/YourProfile')
+	}
+
+	goToAccountSettings() {
+		this.props.landingPageProps.history.push('/AccountSettings')
+	}
+
+	goToDownload() {
+		this.props.landingPageProps.history.push('/LandingPage')
+		alert('Download coming soon!')
+	}
+
   render() {
     return (
       <div className="landingPageNavContainer">
@@ -58,10 +79,10 @@ class LandingPageNav extends Component {
 							<MoreVertIcon />
 						</IconButton>}
 						iconStyle={{}}>
-							<MenuItem primaryText="Your Profile"/>
-							<MenuItem primaryText="Account Settings"/>
+							<MenuItem primaryText="Your Profile" onClick={this.goToYourProfile}/>
+							<MenuItem primaryText="Account Settings" onClick={this.goToAccountSettings}/>
 							<Divider />
-							<MenuItem primaryText="Download" leftIcon={<Download />}/>
+							<MenuItem primaryText="Download" leftIcon={<Download />} onClick={this.goToDownload}/>
 							<Divider />
 							<MenuItem primaryText="Sign Out" onClick={this.signOut}/>
 						</DropDownMenu>
@@ -76,7 +97,7 @@ class LandingPageNav extends Component {
 							<Divider />
 							<MenuItem value={2} primaryText="Your Studio" onClick={this.goToStudioHome}/>
 							<Divider />
-							<MenuItem value={3} primaryText="Flam Blog"/>
+							<MenuItem value={3} primaryText="Flam Blog" onClick={this.goToFlamBlog}/>
 							<Divider />
 							<MenuItem value={4} primaryText="Invitations" onClick={this.goToInvitations}/>
 						</DropDownMenu>
