@@ -63,18 +63,18 @@ class InvitationsListItem extends Component {
 				db.ref(`users`).once('value', (userData) => {
 
 					for (var key in userData.val()) {
-						if (userData.val()[key].email === collaboratorsArr[i]) {
+						if (key === collaboratorsArr[i]) {
 
 							let updatedCollaborators = {
-								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('user_email')
+								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('access_token')
 							}
 
 							db.ref(`users/${key}/projectIDs/${projectID}`).update(updatedCollaborators)
-						}	else if (userData.val()[key].email === sessionStorage.getItem('user_email')) {
+						}	else if (key === sessionStorage.getItem('access_token')) {
 
 							let updatedCollaborators = {
 								Name: projectName,
-								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('user_email')
+								Collaborators: data.val().Collaborators + ' | ' + sessionStorage.getItem('access_token')
 							}
 
 							db.ref(`users/${key}/projectIDs/${projectID}`).update(updatedCollaborators)
