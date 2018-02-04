@@ -5,6 +5,7 @@ import {Redirect, Link} from 'react-router-dom'
 import SignUp from './SignUp.jsx'
 import LoginNav from './LoginNav.jsx'
 
+import $ from 'jquery'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
@@ -26,6 +27,16 @@ class LoginRight extends Component {
 		this.handlePasswordChange = this.handlePasswordChange.bind(this)
 		this.login = this.login.bind(this)
 		this.toggleSignup = this.toggleSignup.bind(this)
+	}
+
+	componentDidMount() {
+		let login = this.login;
+
+		$(".loginPasswordInputField, loginUsernameInputField").keyup(function(event) {
+			if (event.keyCode === 13) {
+				login();
+			}
+		});
 	}
 
 	login() {
@@ -73,6 +84,7 @@ class LoginRight extends Component {
 								<TextField
 									hintText="Email"
 									style={{width: '55%', marginTop: '10%'}}
+									className={"loginUsernameInputField"}
 									onChange={this.handleEmailChange}
 								/>
 								<br />
@@ -81,6 +93,7 @@ class LoginRight extends Component {
 									hintText="Password"
 									style={{width: '55%'}}
 									type="password"
+									className="loginPasswordInputField"
 									onChange={this.handlePasswordChange}
 								/>
 								<div className="loginButtonContainer">
