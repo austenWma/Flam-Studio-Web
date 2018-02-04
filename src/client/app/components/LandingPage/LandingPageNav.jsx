@@ -69,20 +69,27 @@ class LandingPageNav extends Component {
     return (
       <div className="landingPageNavContainer">
         <div className="landingNavLogo">
-					<img src={'http://i66.tinypic.com/2zgu68p.png'} style={{height: '100%', width: '100%', marginTop: '10%'}} />
+					<img src={'http://i67.tinypic.com/2cct1fq.png'} style={{height: '100%', width: '100%'}} />
         </div>
+				<div className="landingPageNavTitle">F L A M &nbsp; B E T A.</div>
 				<div className="landingPageNavSettingsContainer">
 						<MuiThemeProvider>
-						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange} iconButton={<IconButton 
-							iconStyle={{width: 30, height: 30, marginTop: -30, marginLeft: -25}}
+						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange} 
+						menuStyle={{backgroundColor: '#D8D8D8', fontWeight: 100}} 
+						menuItemStyle={{color: 'black'}} 
+						labelStyle={{color: 'white', fontWeight: 100}} 
+						selectedMenuItemStyle={{color: 'black'}}
+						iconButton={<IconButton 
+							iconStyle={{width: 30, height: 30, marginTop: -30, marginLeft: -25, color: 'white'}}
 						>
 							<MoreVertIcon />
 						</IconButton>}
-						iconStyle={{}}>
+						>
 							<MenuItem primaryText="Your Profile" onClick={this.goToYourProfile}/>
+							<Divider />
 							<MenuItem primaryText="Account Settings" onClick={this.goToAccountSettings}/>
 							<Divider />
-							<MenuItem primaryText="Download" leftIcon={<Download />} onClick={this.goToDownload}/>
+							<MenuItem primaryText="Download" leftIcon={<Download style={{color: 'white'}}/>} onClick={this.goToDownload}/>
 							<Divider />
 							<MenuItem primaryText="Sign Out" onClick={this.signOut}/>
 						</DropDownMenu>
@@ -92,7 +99,11 @@ class LandingPageNav extends Component {
 					<div className="landingPageNavAvatarContainer"></div>
 					<div className="landingPageNavAcountDropdown">
 						<MuiThemeProvider>
-						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange}>
+						<DropDownMenu underlineStyle={{display: 'none'}} value={this.state.value} onChange={this.handleMenuChange} 
+							menuStyle={{backgroundColor: '#D8D8D8', fontWeight: 100}} 
+							menuItemStyle={{color: 'black'}} 
+							labelStyle={{color: 'white', fontWeight: 100}} 
+							selectedMenuItemStyle={{color: 'black'}}>
 							<MenuItem value={1} primaryText={sessionStorage.getItem('user_email')}/>
 							<Divider />
 							<MenuItem value={2} primaryText="Your Studio" onClick={this.goToStudioHome}/>

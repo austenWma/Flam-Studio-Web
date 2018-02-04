@@ -108,15 +108,29 @@
     height: 100%;
 }
 .landingPageNavContainer {
-    height: 65px;
+    height: 70px;
     width: 100%;
     border-bottom: solid;
+    border-width: 1px;
+    /* background-color: #181818 */
+    background-color: #0C0C0C
+}
+.landingPageNavTitle {
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #424242;
 }
 .landingNavLogo {
+    float: left;
     height: 100%;
-    width: 65px;
-    margin-left: 5px;
+    width: 90px;
     display: inline-block;
+    border-right: solid;
+    border-color: 	#101010;
+    border-width: 2px;
+    box-shadow: 0 5px 20px -2px rgba(0, 0, 0, 0.92);
 }
 .landingPageNavSettingsContainer {
     height: 100%;
@@ -137,6 +151,7 @@
 .landingPageNavAvatarContainer {
     border-style: solid;
     border-width: 1px;
+    border-color: lightgray;
     height: 50px;
     width: 50px;
     border-radius: 30px;
@@ -147,16 +162,97 @@
 /* Projects */
 .projectsNavContainer {
     border-style: solid;
-    margin-top: 2%;
+    border-width: 1px;
+    border-bottom-color: black;
     width: 100%;
-    height: 10%;
+    height: 45px;
+    background-color: #282828;
 }
-.projectsNavTitleContainer {
+.projectsNavContainerStudioTitle {
     height: 100%;
-    font-family: 'Lato', sans-serif;
+    width: 25%;
+    font-size: 25px;
+    color: lightgray;
+    font-weight: 125;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+
+
+/* Projects Sidebar */
+.projectsSidebarContainer {
+    float: left;
+    height: 100%;
+    width: 25%;
+    background-color: #3E3E44;
+}
+.projectsSidebarSearchContainer {
+    border-bottom: solid;
+    border-width: 1px;
+    height: 40px;
+    width: 100%;
+}
+.projectsSidebarSearchBar {
+    border-style: solid;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    margin-top: 2%;
+    border-color: lightgrey;
+    border-width: 1px;
+    border-radius: 10px;
+    display: flex;
+}
+.projectsSidebarSearchBarInput {
+    outline: none;
+    background: transparent;
+    border: none;
+    margin-left: 10px;
+    margin-top: 0.75px;
+    color: lightgray;
+    width: 90%;
+    background-color: #3E3E44;
+}
+
+
+
+/* Projects Window */
+.projectsWindowContainer {
+    background-color: #5A596B;
+    float: right;
+    width: 75%;
+    height: 100%;
+}
+.projectsListWindow {
+    background-color: #5A596B;
+    float: right;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.projectsListWindowItemContainer {
+    height: 230px;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-color: #717085;
+    border-color: #4B4B5A;
+    box-shadow: 0 2px 7px -2px rgba(0, 0, 0, 0.92);
+}
+.projectsListWindowItemTitle {
+    font-size: 20px;
+    color: #F5F5F5;
     font-weight: 100;
-    font-size: 400%;
-    margin-left: 1%;
+    margin-top: 10px;
 }
 
 
@@ -167,6 +263,22 @@
     font-weight: 100;
     font-size: 400%;
     margin-left: 1%;
+}
+
+
+/* Projects List */
+.projectsListItemContainer {
+    height: 8%;
+    width: 100%;
+    color: #F5F5F5;
+    font-weight: 100;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid;
+    border-color: grey;
+    border-width: 1px;
 }
 
 

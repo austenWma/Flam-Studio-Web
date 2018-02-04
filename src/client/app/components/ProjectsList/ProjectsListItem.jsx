@@ -23,7 +23,7 @@ class ProjectsListItem extends Component {
 
   goToProjectSelected() {
       sessionStorage.setItem('project_selected', this.props.projectInfo)
-      this.props.projectsListProps.history.push('/ProjectSelected')
+      this.props.reRender()
   }
 
 	invite(context) {
@@ -73,12 +73,12 @@ class ProjectsListItem extends Component {
         <div className="projectsListItemContainer" onClick={this.goToProjectSelected}>
           {this.props.projectInfo[0]}
         </div>
-				<button onClick={this.invite}>Invite Collaborator</button>
+				{/* <button onClick={this.invite}>Invite Collaborator</button>
 				<InviteModal
           toggleModal={this.toggleModal}
           showModal={this.state.showModal}
 					emailInviteSubmit={this.emailInviteSubmit}
-        />
+        /> */}
 			</div>
     )
   }

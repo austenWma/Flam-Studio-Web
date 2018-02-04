@@ -12,9 +12,7 @@ class ProjectsNav extends Component {
   render() {
     return (
       <div className="projectsNavContainer">
-        <div className="projectsNavTitleContainer">
-            Your Studio
-        </div>
+        <div className="projectsNavContainerStudioTitle" onClick={this.props.goToStudioHome}>Flam Studio</div>
       </div>
     )
   }

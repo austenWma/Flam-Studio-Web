@@ -12,31 +12,31 @@ class CommitsList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-			commitsListArr: []
+			// commitsListArr: []
 		};
 	}
 
   componentDidMount() {
-		let cutProjectID = sessionStorage.getItem('project_selected').split(',')[1].slice(2)
+		// let cutProjectID = sessionStorage.getItem('project_selected').split(',')[1].slice(2) || ''
 
-		db.ref(`users/${sessionStorage.getItem('access_token')}/projectCommits/${cutProjectID}`).on('value', (data) => {
-			let commitsListArr = []
+		// db.ref(`users/${sessionStorage.getItem('access_token')}/projectCommits/${cutProjectID}`).on('value', (data) => {
+		// 	let commitsListArr = []
 
-			for (var key in data.val()) {
-				commitsListArr.push(data.val()[key] + ' | ' + key)
-			}
+		// 	for (var key in data.val()) {
+		// 		commitsListArr.push(data.val()[key] + ' | ' + key)
+		// 	}
 
-			this.setState({
-				commitsListArr: commitsListArr
-			})
-		})
+		// 	this.setState({
+		// 		commitsListArr: commitsListArr
+		// 	})
+		// })
   }
 
   render() {
     return (
       <div className="projectSelectedCommitsListContainer">
-				{this.state.commitsListArr.map(commit =>
-					<CommitsListItem projectInfo={commit}/> 
+				{this.props.commitsListArr.map(commit =>
+					<CommitsListItem commitInfo={commit} /> 
 				)}
     	</div>
     )

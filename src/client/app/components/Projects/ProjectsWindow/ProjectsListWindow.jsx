@@ -2,21 +2,21 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
-import ProjectsListItem from './ProjectsListItem.jsx'
-
-import { firebaseRef } from '../../Firebase/firebase.js'
+import { firebaseRef } from '../../../Firebase/firebase.js'
 import * as firebase from 'firebase'
 const db = firebase.database()
 
-class ProjectsList extends Component {
+import ProjectsListWindowItem from './ProjectsListWindowItem.jsx'
+
+class ProjectsListWindow extends Component {
   constructor (props) {
     super(props)
     this.state = {
-			projectsArr: [],
+      projectsArr: []
 		};
-	}
-	
-	componentDidMount() {
+  }
+
+  componentDidMount() {
 		db.ref(`users/${sessionStorage.getItem('access_token')}/projectIDs`).on('value', (data) => {
 			let newProjectsArr = []
 			let newProjectsIDsArr = []
@@ -26,19 +26,19 @@ class ProjectsList extends Component {
 
 			this.setState({
 				projectsArr: newProjectsArr,
-			})
-		})
+      })
+    })
 	}
 
   render() {
     return (
-      <div className="projectsListContainer">
+      <div className="projectsListWindow">
         {this.state.projectsArr.map(project =>
-					<ProjectsListItem projectInfo={project} reRender={this.props.reRender}/> 
+					<ProjectsListWindowItem projectInfo={project} reRender={this.props.reRender}/> 
 				)}
       </div>
     )
   }
 }
 
-export default ProjectsList;
+export default ProjectsListWindow;
