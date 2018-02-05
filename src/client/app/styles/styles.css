@@ -118,7 +118,7 @@
 .landingPageNavTitle {
     float: left;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 28px;
     font-size: 30px;
     color: #424242;
 }
@@ -170,14 +170,48 @@
 }
 .projectsNavContainerStudioTitle {
     height: 100%;
-    width: 25%;
+    width: 24%;
+    float: left;
     font-size: 25px;
     color: lightgray;
     font-weight: 125;
     margin-left: 15px;
     cursor: pointer;
 }
-
+.projectsNavUtilitiesContainer {
+    height: 100%;
+    width: 50%;
+    float: right;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.projectsNavUtilitiesIcons {
+    margin-right: 20px;
+}
+.projectsNavUtilitiesShareButtonContainer {
+    height: 100%;
+    width: 300px;
+    float: left;
+}
+.projectsNavUtilitiesShareButton {
+    border-style: solid;
+    border-color: #DADADA;
+    border-width: 1px;
+    border-radius: 20px;
+    height: 75%;
+    margin-top: 7px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 200;
+    color: #DADADA;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
 
 
 /* Projects Sidebar */
@@ -189,7 +223,8 @@
 }
 .projectsSidebarSearchContainer {
     border-bottom: solid;
-    border-width: 1px;
+    border-width: 1.25px;
+    border-color: #2B2B2B;
     height: 40px;
     width: 100%;
 }
