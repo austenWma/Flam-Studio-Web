@@ -25,12 +25,11 @@ class CommitsListItem extends Component {
 	}
 
   render() {
-		console.log('+++++++++++++++++++', this.props.commitInfo)
     return (
-      <div>
+      <div className="commitInfoContainer">
 				<div className="commitInfo">
-					<div>{this.props.commitInfo[0]}</div>
-					<div>{this.props.commitInfo[3]}</div>
+					<div className="commitInfoMessage">{this.props.commitInfo[0]}</div>
+					<div className="commitInfoUser">{this.props.commitInfo[3]}</div>
 				</div>
 				<a onClick={this.commitDownload}>Open in Logic</a>
 	    </div>

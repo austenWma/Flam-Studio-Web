@@ -170,14 +170,18 @@
 }
 .projectsNavContainerStudioTitle {
     height: 100%;
-    width: 24%;
+    width: 19.995%;
+    border-right: solid;
+    border-width: 0.5px;
+    border-color: #414141;
     float: left;
     font-size: 25px;
     color: lightgray;
     font-weight: 125;
-    margin-left: 15px;
+    padding-left: 15px;
     padding-top: 5px;
     cursor: pointer;
+    text-align: center;
 }
 .projectsNavUtilitiesContainer {
     height: 100%;
@@ -219,7 +223,7 @@
 .projectsSidebarContainer {
     float: left;
     height: 100%;
-    width: 25%;
+    width: 20%;
     background-color: #3E3E44;
 }
 .projectsSidebarSearchContainer {
@@ -257,13 +261,13 @@
 .projectsWindowContainer {
     background-color: #5A596B;
     float: right;
-    width: 75%;
+    width: 80%;
     height: 100%;
 }
 .projectsListWindow {
     background-color: #5A596B;
     float: right;
-    width: 75%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -292,33 +296,19 @@
 
 
 
-/* Project Selected */
-.projectSelectedTitle {
-    font-family: 'Lato', sans-serif;
-    font-weight: 100;
-    font-size: 400%;
-    margin-left: 1%;
-}
-.projectSelectedContainer {
-}
 
 
 /* Project Window Sidebar */
 .projectsWindowSidebarContainer {
     height: 100%;
-    width: 350px;
+    width: 375px;
     float: right;
-    z-index: 5;
     border-style: solid;
     border-color: black;
-    margin:0 -350px 0 0;
+    margin:0 -375px 0 0;
     border-width: 1px;
-    background-color: #181818;
-    opacity: 50%;
+    background-color: rgba(10, 10, 10, 0.8);
     -webkit-transition: .5s ease-in;
-    -moz-transition: .5s ease-in;
-    -o-transition: .5s ease-in;
-    -ms-transition: .5s ease-in;
     transition: .5s ease-in;
 }
 .projectsWindowSidebarContainerShow {
@@ -343,6 +333,66 @@
 
 
 
+
+/* Project Selected */
+.projectSelectedTitle {
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    font-size: 300%;
+    margin-left: 1%;
+    color: rgba(211, 211, 211, 0.97);
+}
+.projectSelectedContainer {
+}
+/* Commits */
+.commitInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.commitInfo {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #E4DDCB;
+    width: 90%;
+    margin-top: 30px;
+}
+.commitInfoMessage {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 150;
+    color: #ACA5A5;
+}
+.commitInfoUser {
+    float: right;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 150;
+    color: #ACA5A5;
+}
+
+
+
+
+/* ProjectsWindowSidebar */
+.projectsWindowSidebarProjectDetails {
+    min-height: 15%;
+    width: 100%;
+    border-style: solid;
+}
+.projectsWindowSidebarCollaboratorsContainer {
+    min-height: 40%;
+    width: 100%;
+    border-style: solid;
+}
+.projectsWindowSidebarInvitationsContainer {
+    min-height: 35%;
+    width: 100%;
+    border-style: solid;
+}
+
+
+
 /* Invitations */
 .invitationsContainer {
     height: 100%;
@@ -357,6 +407,28 @@
     margin-top: 2%;
     width: 100%;
     height: 10%;
+}
+.projectsWindowSidebarInvitationsText {
+    color: #D8D8D8
+}
+.inviteButtonContainer {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+}
+.inviteButton {
+    height: 100%;
+    width: 60%;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #D8D8D8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D8D8D8;
+    background-color: #616161;
+    border-width: 1.5px;
+    cursor: pointer;
 }
 
 

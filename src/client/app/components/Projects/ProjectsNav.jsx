@@ -18,7 +18,6 @@ class ProjectsNav extends Component {
   }
 
   toggleSidebar() {
-    // $('.projectsWindowSidebarContainer').slideToggle(250)
     $(".projectsWindowSidebarContainer").toggleClass("projectsWindowSidebarContainerShow");
   }
 
