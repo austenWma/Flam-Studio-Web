@@ -176,6 +176,7 @@
     color: lightgray;
     font-weight: 125;
     margin-left: 15px;
+    padding-top: 5px;
     cursor: pointer;
 }
 .projectsNavUtilitiesContainer {
@@ -197,7 +198,7 @@
 .projectsNavUtilitiesShareButton {
     border-style: solid;
     border-color: #DADADA;
-    border-width: 1px;
+    border-width: 2px;
     border-radius: 20px;
     height: 75%;
     margin-top: 7px;
@@ -278,10 +279,9 @@
     border-style: solid;
     border-width: 2px;
     padding-top: 15px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #717085;
     border-color: #4B4B5A;
-    box-shadow: 0 2px 7px -2px rgba(0, 0, 0, 0.92);
 }
 .projectsListWindowItemTitle {
     font-size: 20px;
@@ -298,6 +298,31 @@
     font-weight: 100;
     font-size: 400%;
     margin-left: 1%;
+}
+.projectSelectedContainer {
+}
+
+
+/* Project Window Sidebar */
+.projectsWindowSidebarContainer {
+    height: 100%;
+    width: 350px;
+    float: right;
+    z-index: 5;
+    border-style: solid;
+    border-color: black;
+    margin:0 -350px 0 0;
+    border-width: 1px;
+    background-color: #181818;
+    opacity: 50%;
+    -webkit-transition: .5s ease-in;
+    -moz-transition: .5s ease-in;
+    -o-transition: .5s ease-in;
+    -ms-transition: .5s ease-in;
+    transition: .5s ease-in;
+}
+.projectsWindowSidebarContainerShow {
+    margin: 0;
 }
 
 

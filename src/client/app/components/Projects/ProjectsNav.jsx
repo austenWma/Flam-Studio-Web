@@ -2,16 +2,24 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
-import SettingsApp from 'material-ui/svg-icons/action/settings';
+import Toc from 'material-ui/svg-icons/action/toc';
 import UploadIcon from 'material-ui/svg-icons/action/backup';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
+
+import $ from 'jquery'
 
 class ProjectsNav extends Component {
   constructor (props) {
     super(props)
     this.state = {
-		};
+    };
+    this.toggleSidebar = this.toggleSidebar.bind(this)
+  }
+
+  toggleSidebar() {
+    // $('.projectsWindowSidebarContainer').slideToggle(250)
+    $(".projectsWindowSidebarContainer").toggleClass("projectsWindowSidebarContainerShow");
   }
 
   render() {
@@ -21,12 +29,12 @@ class ProjectsNav extends Component {
         <div className="projectsNavUtilitiesContainer">
           <MuiThemeProvider>
           <div className="projectsNavUtilitiesIcons">
-            <IconButton iconStyle={{color: 'white', float: 'right'}}>
-              <SettingsApp />
+            <IconButton iconStyle={{color: 'white', float: 'right'}} onClick={this.toggleSidebar}>
+              <Toc />
             </IconButton>
             <div className="projectsNavUtilitiesShareButtonContainer" >
               <div className="projectsNavUtilitiesShareButton">
-                <UploadIcon style={{color: 'white', marginRight: 5}}/> Share
+                <UploadIcon style={{color: '#F5F5F5', marginRight: 5}}/> Share
               </div>
             </div>
           </div>

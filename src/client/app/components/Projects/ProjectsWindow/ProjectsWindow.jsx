@@ -4,6 +4,7 @@ import {Redirect, Link} from 'react-router-dom'
 
 import ProjectActions from '../ProjectActions.jsx'
 import ProjectSelected from '../../ProjectSelected/ProjectSelected.jsx'
+import ProjectsWindowSidebar from './ProjectsWindowSidebar.jsx'
 
 class ProjectsWindow extends Component {
   constructor (props) {
@@ -15,6 +16,7 @@ class ProjectsWindow extends Component {
   render() {
     return (
       <div className="projectsWindowContainer">
+        <ProjectsWindowSidebar />
 				<ProjectSelected projectName={this.props.projectName} commitsListArr={this.props.commitsListArr} projectInfoArr={this.props.projectInfoArr} />
       </div>
     )
