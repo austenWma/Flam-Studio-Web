@@ -17,6 +17,10 @@ class ProjectsNav extends Component {
     this.toggleSidebar = this.toggleSidebar.bind(this)
   }
 
+  componentDidMount() {
+    $('.projectsNavUtilitiesContainer').hide()
+  }
+
   toggleSidebar() {
     $(".projectsWindowSidebarContainer").toggleClass("projectsWindowSidebarContainerShow");
   }

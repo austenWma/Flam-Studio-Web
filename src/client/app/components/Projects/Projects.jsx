@@ -12,31 +12,43 @@ import { firebaseRef } from '../../Firebase/firebase.js'
 import * as firebase from 'firebase'
 const db = firebase.database()
 
+import $ from 'jquery'
+
 class Projects extends Component {
   constructor (props) {
     super(props)
     this.state = {
       projectName: '',
       commitsListArr: [],
-      projectInfoArr: []
+      projectCollaboratorsArr: []
     };
     this.reRenderProjectWindow = this.reRenderProjectWindow.bind(this)
-    this.generateCommitsList = this.generateCommitsList.bind(this)
-    this.getProjectInfo = this.getProjectInfo.bind(this)
+    this.generateCommitsAndCollaboratorsList = this.generateCommitsAndCollaboratorsList.bind(this)
     this.goToStudioHome = this.goToStudioHome.bind(this)
   }
   
   reRenderProjectWindow() {
     let projectSelectedInfo = sessionStorage.getItem('project_selected').split(',')[0];
-    this.generateCommitsList(projectSelectedInfo);
+    this.generateCommitsAndCollaboratorsList(projectSelectedInfo);
+
+    //Toggles the availability of the project search bar off if project is selected
+    if (this.state.projectName.length === 0) {
+      $('.projectsSidebarSearchContainer').slideToggle(300)
+      $('.projectsNavUtilitiesContainer').slideToggle(300)
+    }
   }
 
-  generateCommitsList(projectSelectedInfo) {
+  generateCommitsAndCollaboratorsList(projectSelectedInfo) {
     let cutProjectID = sessionStorage.getItem('project_selected').split(',')[1].slice(2) || ''
 
+    // Getting commits list to populate projectsWindow
 		db.ref(`users/${sessionStorage.getItem('access_token')}/projectCommits/${cutProjectID}`).on('value', (data) => {
       let commitsListArr = [];
       let commitsListArrParsed = [];
+
+      // Defining this first to expand scope
+      let collaboratorsIDArr = [];
+      let collaboratorsDataArrParsed = [];
 
 			for (var key in data.val()) {
 				commitsListArr.push(data.val()[key] + ' | ' + key)
@@ -47,24 +59,48 @@ class Projects extends Component {
         commitsListArrParsed.push([commitInfo[1], commitInfo[0], commitInfo[4], commitInfo[3]])
       }
 
-			this.setState({
-        projectName: projectSelectedInfo,
-        commitsListArr: commitsListArrParsed,
+      // Grab collaborators info to populate projectsSidebar
+      db.ref(`users/${sessionStorage.getItem('access_token')}/projectIDs/${cutProjectID}/Collaborators`).once('value', (collaboratorsData) => {
+        collaboratorsIDArr = collaboratorsData.val().split(' | ')
+
+      })
+      .then(() => {
+        let count = 0;
+        while (count < collaboratorsIDArr.length) {
+          db.ref(`users/${collaboratorsIDArr[count]}`).once('value', function(val) {
+            collaboratorsDataArrParsed.push(val.val()['email'])
+          })
+          count++;
+        }
+      })
+      .then(() => {
+        this.setState({
+          projectName: projectSelectedInfo,
+          commitsListArr: commitsListArrParsed,
+        })
+
+        //SetTimeout because pushing to the collaborators arr has asynch dependence
+        setTimeout(() => {
+          console.log('RENDERING PROJECTS LIST', collaboratorsDataArrParsed)
+          this.setState({
+            projectCollaboratorsArr: collaboratorsDataArrParsed
+          })
+        }, 250)
       })
 		})
   }
 
-  getProjectInfo(info) {
-    let commitInfo = info.split(' | ');
-
-    return [commitInfo[1], commitInfo[0], commitInfo[4], commitInfo[3]]
-  }
-
   goToStudioHome() {
+
+    // Toggles project search bar back on
+    $('.projectsSidebarSearchContainer').slideToggle(250)
+
+    $('.projectsNavUtilitiesContainer').slideToggle(250)
+
     this.setState({
       projectName: '',
       commitsListArr: [],
-      projectInfoArr: []
+      projectCollaboratorsIDArr: []
     })
   }
 

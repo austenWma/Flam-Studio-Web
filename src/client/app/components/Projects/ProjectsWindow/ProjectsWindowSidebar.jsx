@@ -3,6 +3,8 @@ import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
 import $ from 'jquery'
+import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import { firebaseRef } from '../../../Firebase/firebase.js'
 import * as firebase from 'firebase'
@@ -12,7 +14,8 @@ class ProjectsWindowSidebar extends Component {
   constructor (props) {
     super(props)
     this.state = {
-			invitee: ''
+			invitee: '',
+			message: ''
 		}
 		this.emailInviteSubmit = this.emailInviteSubmit.bind(this)
 		this.sendInvite = this.sendInvite.bind(this)
@@ -22,6 +25,12 @@ class ProjectsWindowSidebar extends Component {
 	handleInviteeEmail(e) {
 		this.setState({
 			invitee: e.target.value
+		})
+	}
+
+	handleInviteMessage(e) {
+		this.setState({
+			message: e.target.value
 		})
 	}
 
@@ -69,12 +78,35 @@ class ProjectsWindowSidebar extends Component {
     return (
       <div className="projectsWindowSidebarContainer">
 				<div className="projectsWindowSidebarProjectDetails"></div>
-				<div className="projectsWindowSidebarCollaboratorsContainer">
-					<div>Collaborators</div>
+				<div className="projectsWindowSidebarChatLogContainer">
+					<div>History/Chat Box</div>
 				</div>
 				<div className="projectsWindowSidebarInvitationsContainer">
 					<div className="projectsWindowSidebarInvitationsText">Invite a Collaborator:</div>
-					<div><input className="projectsWindowSidebarInvitationsInput" type="text" onChange={this.handleInviteeEmail}/></div>
+						<div>
+						<MuiThemeProvider>
+							<TextField
+								hintText="Email"
+								style={{width: '55%', marginTop: '7%'}}
+								underlineFocusStyle={{borderColor: '#7300e6'}}
+								inputStyle={{color: '#D8D8D8'}}
+								hintStyle={{color: '#404040'}}
+								className={"projectsWindowSidebarInvitationsInput"}
+								onChange={this.handleInviteeEmail}
+							/>
+							<TextField
+								hintText="Message"
+								style={{width: '55%', marginTop: '3%', marginBottom: '3%'}}
+								underlineFocusStyle={{borderColor: '#7300e6'}}
+								textareaStyle={{color: '#D8D8D8'}}
+								hintStyle={{color: '#404040'}}
+								multiLine={true}
+								rowsMax={3}
+								className={"projectsWindowSidebarInvitationsInput"}
+								onChange={this.handleInviteMessage}
+							/>
+						</MuiThemeProvider>
+						</div>
 						<div className="inviteButtonContainer" onClick={this.sendInvite}>
 							<div className="inviteButton">
 								Send Invitation

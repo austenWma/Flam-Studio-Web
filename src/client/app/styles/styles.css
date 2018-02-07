@@ -376,23 +376,25 @@
 
 /* ProjectsWindowSidebar */
 .projectsWindowSidebarProjectDetails {
-    min-height: 15%;
+    min-height: 10%;
     width: 100%;
     border-style: solid;
 }
-.projectsWindowSidebarCollaboratorsContainer {
-    min-height: 40%;
+.projectsWindowSidebarChatLogContainer {
+    min-height: 45%;
     width: 100%;
     border-style: solid;
 }
 .projectsWindowSidebarInvitationsContainer {
     min-height: 35%;
     width: 100%;
-    border-style: solid;
+    border-style: solid;        
 }
-
-
-
+.projectsWindowSidebarInvitationsText {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 150;
+}
 /* Invitations */
 .invitationsContainer {
     height: 100%;
