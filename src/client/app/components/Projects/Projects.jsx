@@ -30,12 +30,6 @@ class Projects extends Component {
   reRenderProjectWindow() {
     let projectSelectedInfo = sessionStorage.getItem('project_selected').split(',')[0];
     this.generateCommitsAndCollaboratorsList(projectSelectedInfo);
-
-    //Toggles the availability of the project search bar off if project is selected
-    if (this.state.projectName.length === 0) {
-      $('.projectsSidebarSearchContainer').slideToggle(300)
-      $('.projectsNavUtilitiesContainer').slideToggle(300)
-    }
   }
 
   generateCommitsAndCollaboratorsList(projectSelectedInfo) {
@@ -74,6 +68,13 @@ class Projects extends Component {
         }
       })
       .then(() => {
+
+        //Toggles the availability of the project search bar off if project is selected
+        if (this.state.projectName.length === 0) {
+          $('.projectsSidebarSearchContainer').slideToggle(300)
+          $('.projectsNavUtilitiesContainer').slideToggle(300)
+        }
+
         this.setState({
           projectName: projectSelectedInfo,
           commitsListArr: commitsListArrParsed,
@@ -92,10 +93,11 @@ class Projects extends Component {
 
   goToStudioHome() {
 
-    // Toggles project search bar back on
-    $('.projectsSidebarSearchContainer').slideToggle(250)
-
-    $('.projectsNavUtilitiesContainer').slideToggle(250)
+    // Toggles project search bar back on and utilities off
+    if (this.state.projectName.length !== 0) {
+      $('.projectsSidebarSearchContainer').slideToggle(300)
+      $('.projectsNavUtilitiesContainer').slideToggle(300)
+    }
 
     this.setState({
       projectName: '',
