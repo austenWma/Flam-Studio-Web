@@ -29,7 +29,7 @@ class Projects extends Component {
   }
 
   componentDidMount() {
-    $('.projectsSidebarSearchContainer').slideToggle(300)
+    this.goToStudioHome()
   }
   
   reRenderProjectWindow() {
@@ -87,10 +87,10 @@ class Projects extends Component {
 
         //SetTimeout because pushing to the collaborators arr has asynch dependence
         setTimeout(() => {
-          console.log('RENDERING PROJECTS LIST', collaboratorsDataArrParsed)
           this.setState({
             projectCollaboratorsArr: collaboratorsDataArrParsed
           })
+          $('.projectsSidebarSelectedCollaboratorsInnerContainer').fadeToggle(600)
         }, 250)
       })
 		})
@@ -111,6 +111,7 @@ class Projects extends Component {
 
     setTimeout(() => {
       $('.projectsSidebarSearchContainer').slideToggle(300)
+      $('.projectsSidebarListContainer').fadeToggle(500)
     }, 100)
   }
 

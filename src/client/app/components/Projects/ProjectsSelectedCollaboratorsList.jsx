@@ -11,16 +11,22 @@ class ProjectsSelectedCollaboratorsList extends Component {
 		};
 	}
 
+	componentDidMount() {
+		$('.projectsSidebarSelectedCollaboratorsInnerContainer').hide()
+	}
+
   render() {
     return (
       <div className="projectsSidebarSelectedCollaboratorsContainer">
-        <div className="projectsSidebarSelectedCollaboratorsText">Collaborators</div>
-				{this.props.collaboratorsArr.map(collaborator =>
-					<div className="projectsSidebarSelectedCollaboratorItemContainer">
-						<div className="projectsSidebarSelectedCollaboratorsAvatar"></div> 
-						<div className="projectsSidebarSelectedCollaboratorsEmail">{collaborator}</div> 
-					</div>
-				)}
+				<div className="projectsSidebarSelectedCollaboratorsInnerContainer">
+					<div className="projectsSidebarSelectedCollaboratorsText">Collaborators</div>
+					{this.props.collaboratorsArr.map(collaborator =>
+						<div className="projectsSidebarSelectedCollaboratorItemContainer">
+							<div className="projectsSidebarSelectedCollaboratorsAvatar"></div> 
+							<div className="projectsSidebarSelectedCollaboratorsEmail">{collaborator}</div> 
+						</div>
+					)}
+				</div>
       </div>
     )
   }

@@ -18,6 +18,7 @@ class ProjectsSidebar extends Component {
 
 	componentDidMount() {
 		$('.projectsSidebarSearchContainer').hide()
+		$('.projectsSidebarListContainer').hide()
 	}
 
   render() {
