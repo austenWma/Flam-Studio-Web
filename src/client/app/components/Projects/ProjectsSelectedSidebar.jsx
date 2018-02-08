@@ -95,7 +95,11 @@ class ProjectsSelectedSidebar extends Component {
 				</div>
 				<div className="projectsSidebarSelectedContainer">
 					<div className="projectsSidebarSelectedProjectInfoContainer">
-
+						<div className="projectsSidebarSelectedProjectInfoAvatar"></div>
+						<div className="projectsSidebarSelectedProjectInfoText">
+							<div>{this.props.projectName}</div>
+							<div className="projectsSidebarSelectedProjectInfoTextCollaboratorsCount">{this.props.collaboratorsArr.length + ' Collaborator(s)'}</div>
+						</div>
 					</div>
 					<div>
 						<ProjectsSelectedSidebarCollaboratorsList collaboratorsArr={this.props.collaboratorsArr}/>
@@ -106,7 +110,7 @@ class ProjectsSelectedSidebar extends Component {
 							<MuiThemeProvider>
 								<TextField
 									hintText="Email"
-									style={{width: '55%', marginTop: '7%'}}
+									style={{width: '75%', marginTop: '3%'}}
 									underlineFocusStyle={{borderColor: '#7300e6'}}
 									inputStyle={{color: '#D8D8D8'}}
 									hintStyle={{color: '#7C7C7C'}}
@@ -115,7 +119,7 @@ class ProjectsSelectedSidebar extends Component {
 								/>
 								<TextField
 									hintText="Message"
-									style={{width: '55%', marginTop: '3%', marginBottom: '3%'}}
+									style={{width: '75%', marginTop: '3%', marginBottom: '3%'}}
 									underlineFocusStyle={{borderColor: '#7300e6'}}
 									textareaStyle={{color: '#D8D8D8'}}
 									hintStyle={{color: '#7C7C7C'}}

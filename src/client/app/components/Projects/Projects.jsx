@@ -127,7 +127,7 @@ class Projects extends Component {
       return (
         <div className="projectsContainer">
           <ProjectsNav goToStudioHome={this.goToStudioHome}/>
-          <ProjectsSelectedSidebar reRender={this.reRenderProjectWindow} collaboratorsArr={this.state.projectCollaboratorsArr}/>
+          <ProjectsSelectedSidebar reRender={this.reRenderProjectWindow} collaboratorsArr={this.state.projectCollaboratorsArr} projectName={this.state.projectName}/>
           <ProjectsWindow projectName={this.state.projectName} commitsListArr={this.state.commitsListArr} /> 
         </div>
       )

@@ -14,9 +14,12 @@ class ProjectsSelectedCollaboratorsList extends Component {
   render() {
     return (
       <div className="projectsSidebarSelectedCollaboratorsContainer">
-        <div>Collaborators</div>
+        <div className="projectsSidebarSelectedCollaboratorsText">Collaborators</div>
 				{this.props.collaboratorsArr.map(collaborator =>
-					<div>{collaborator}</div> 
+					<div className="projectsSidebarSelectedCollaboratorItemContainer">
+						<div className="projectsSidebarSelectedCollaboratorsAvatar"></div> 
+						<div className="projectsSidebarSelectedCollaboratorsEmail">{collaborator}</div> 
+					</div>
 				)}
       </div>
     )
