@@ -7,6 +7,7 @@ import ProjectsList from '../ProjectsList/ProjectsList.jsx'
 import ProjectsSidebar from '../Projects/ProjectsSidebar.jsx'
 import ProjectsWindow from '../Projects/ProjectsWindow/ProjectsWindow.jsx'
 import ProjectsListWindow from './ProjectsWindow/ProjectsListWindow.jsx'
+import ProjectsSelectedSidebar from '../Projects/ProjectsSelectedSidebar.jsx'
 
 import { firebaseRef } from '../../Firebase/firebase.js'
 import * as firebase from 'firebase'
@@ -25,6 +26,10 @@ class Projects extends Component {
     this.reRenderProjectWindow = this.reRenderProjectWindow.bind(this)
     this.generateCommitsAndCollaboratorsList = this.generateCommitsAndCollaboratorsList.bind(this)
     this.goToStudioHome = this.goToStudioHome.bind(this)
+  }
+
+  componentDidMount() {
+    $('.projectsSidebarSearchContainer').slideToggle(300)
   }
   
   reRenderProjectWindow() {
@@ -95,7 +100,6 @@ class Projects extends Component {
 
     // Toggles project search bar back on and utilities off
     if (this.state.projectName.length !== 0) {
-      $('.projectsSidebarSearchContainer').slideToggle(300)
       $('.projectsNavUtilitiesContainer').slideToggle(300)
     }
 
@@ -104,6 +108,10 @@ class Projects extends Component {
       commitsListArr: [],
       projectCollaboratorsIDArr: []
     })
+
+    setTimeout(() => {
+      $('.projectsSidebarSearchContainer').slideToggle(300)
+    }, 100)
   }
 
   render() {
@@ -119,7 +127,7 @@ class Projects extends Component {
       return (
         <div className="projectsContainer">
           <ProjectsNav goToStudioHome={this.goToStudioHome}/>
-          <ProjectsSidebar reRender={this.reRenderProjectWindow}/>
+          <ProjectsSelectedSidebar reRender={this.reRenderProjectWindow} collaboratorsArr={this.state.projectCollaboratorsArr}/>
           <ProjectsWindow projectName={this.state.projectName} commitsListArr={this.state.commitsListArr} /> 
         </div>
       )

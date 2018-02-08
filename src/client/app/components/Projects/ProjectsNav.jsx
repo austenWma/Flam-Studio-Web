@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
-import Toc from 'material-ui/svg-icons/action/toc';
+import Chat from 'material-ui/svg-icons/communication/chat';
 import UploadIcon from 'material-ui/svg-icons/action/backup';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
@@ -33,7 +33,7 @@ class ProjectsNav extends Component {
           <MuiThemeProvider>
           <div className="projectsNavUtilitiesIcons">
             <IconButton iconStyle={{color: 'white', float: 'right'}} onClick={this.toggleSidebar}>
-              <Toc />
+              <Chat />
             </IconButton>
             <div className="projectsNavUtilitiesShareButtonContainer" >
               <div className="projectsNavUtilitiesShareButton">

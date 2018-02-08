@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 import {Redirect, Link} from 'react-router-dom'
 
+import $ from 'jquery'
+
 import ProjectsList from '../ProjectsList/ProjectsList.jsx'
 
 import SearchIcon from 'material-ui/svg-icons/action/search';
@@ -12,7 +14,11 @@ class ProjectsSidebar extends Component {
     super(props)
     this.state = {
 		};
-  }
+	}
+
+	componentDidMount() {
+		$('.projectsSidebarSearchContainer').hide()
+	}
 
   render() {
     return (
